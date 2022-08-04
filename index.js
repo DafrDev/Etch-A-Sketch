@@ -25,10 +25,15 @@ function createGrid() {
   }
 }
 
+function removeOldGrid(grid) {
+  grid.textContent = "";
+}
+
 function createGridContainer() {
   const grid = document.querySelector(".grid-container");
 
   gridWidth = prompt("grid width");
+  removeOldGrid(grid);
 
   const gridContainerWidth = gridWidth * 16 + "px";
   const gridContainerHeight = gridWidth * 16 + "px";
