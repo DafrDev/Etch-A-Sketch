@@ -1,4 +1,7 @@
-console.log("Working...");
+const gridWidth = prompt("Grid Width: ");
+
+const gridContainerWidth = gridWidth * 16 + "px";
+const gridContainerHeight = gridWidth * 16 + "px";
 
 function drawOnMouseOver(sqDiv) {
   sqDiv.addEventListener("mouseover", e => {
@@ -10,8 +13,8 @@ function createGrid() {
   const gridContainer = document.querySelector(".grid-container");
 
   let id = 0;
-  for (let c = 0; c < 16; c++) {
-    for (let r = 0; r < 16; r++) {
+  for (let c = 0; c < gridWidth; c++) {
+    for (let r = 0; r < gridWidth; r++) {
       id++;
       const squareDiv = document.createElement("div");
       squareDiv.className = "square";
@@ -23,4 +26,14 @@ function createGrid() {
   }
 }
 
+function createGridContainerSize() {
+  const grid = document.querySelector(".grid-container");
+
+  grid.style.cssText = `
+    width: ${gridContainerWidth};
+    height: ${gridContainerHeight};
+  `;
+}
+
 createGrid();
+createGridContainerSize();
