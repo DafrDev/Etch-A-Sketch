@@ -15,4 +15,9 @@
   width: 16px;
   height: 16px;
   border: solid 1px red;
+  cursor: pointer;
+}
+
+.draw {
+  background-color: green;
 }

@@ -1,5 +1,11 @@
 console.log("Working...");
 
+function drawOnMouseOver(sqDiv) {
+  sqDiv.addEventListener("mouseover", e => {
+    sqDiv.className += " draw";
+  });
+}
+
 function createGrid() {
   const gridContainer = document.querySelector(".grid-container");
 
@@ -11,6 +17,8 @@ function createGrid() {
       squareDiv.className = "square";
       squareDiv.setAttribute("id", id);
       gridContainer.append(squareDiv);
+
+      drawOnMouseOver(squareDiv);
     }
   }
 }
