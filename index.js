@@ -1,7 +1,6 @@
-const gridWidth = prompt("Grid Width: ");
+const gridWidthBtn = document.querySelector(".gridWidth");
 
-const gridContainerWidth = gridWidth * 16 + "px";
-const gridContainerHeight = gridWidth * 16 + "px";
+gridWidthBtn.addEventListener("click", createGridContainer);
 
 function drawOnMouseOver(sqDiv) {
   sqDiv.addEventListener("mouseover", e => {
@@ -26,14 +25,18 @@ function createGrid() {
   }
 }
 
-function createGridContainerSize() {
+function createGridContainer() {
   const grid = document.querySelector(".grid-container");
+
+  gridWidth = prompt("grid width");
+
+  const gridContainerWidth = gridWidth * 16 + "px";
+  const gridContainerHeight = gridWidth * 16 + "px";
 
   grid.style.cssText = `
     width: ${gridContainerWidth};
     height: ${gridContainerHeight};
   `;
-}
 
-createGrid();
-createGridContainerSize();
+  createGrid(gridWidth);
+}
