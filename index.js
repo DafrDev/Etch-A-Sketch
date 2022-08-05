@@ -1,9 +1,16 @@
+const gridContainer = document.querySelector(".grid-container");
+
 const squareSizeSlider = document.querySelector("#squareSize");
 squareSizeSlider.addEventListener("change", getSquareQuantity);
 squareSizeSlider.addEventListener("input", showValueOnScreen);
 
 const colorPicker = document.querySelector("#colorPicker");
 colorPicker.addEventListener("change", getColor);
+
+const cleanGrid = document.querySelector("#cleanGrid");
+cleanGrid.addEventListener("click", () => {
+  createGrid(squareSizeSlider.value);
+});
 
 // black color
 let color = "#000000";
@@ -68,7 +75,6 @@ function createSquare(gridContainer, id, squareQty) {
 }
 
 function createGrid(squareQty) {
-  const gridContainer = document.querySelector(".grid-container");
   const contain = gridContainer.childNodes;
 
   gridContainer.addEventListener("contextmenu", e => {
