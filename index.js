@@ -22,10 +22,21 @@ function showValueOnScreen(event) {
 function removeOldValue(parent) {
   parent.textContent = "";
 }
-
+let drawing = false;
 function drawOnGrid(sqDiv) {
-  sqDiv.addEventListener("click", () => {
+  sqDiv.addEventListener("mousedown", () => {
     sqDiv.style.background = `${color}`;
+    drawing = true;
+  });
+
+  sqDiv.addEventListener("mousemove", () => {
+    if (drawing) {
+      sqDiv.style.background = `${color}`;
+    }
+  });
+
+  sqDiv.addEventListener("mouseup", () => {
+    drawing = false;
   });
 }
 
