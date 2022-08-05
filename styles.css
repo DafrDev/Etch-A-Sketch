@@ -9,6 +9,10 @@
   justify-content: center;
   gap: 40px;
 }
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
 
 .grid-container {
   display: grid;

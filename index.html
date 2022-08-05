@@ -9,16 +9,20 @@
   </head>
   <body>
     <div class="content-container">
-      <label id="rangeLabel" for="square-size">Grid Size: 16x16</label>
-      <input
-        type="range"
-        id="squareSize"
-        name="square-size"
-        value="16"
-        min="1"
-        max="64"
-        step="1"
-      />
+      <div class="input-container">
+        <label for="colorPicker">Color</label>
+        <input id="colorPicker" type="color" name="colorPicker" />
+        <label id="rangeLabel" for="square-size">Grid Size: 16x16</label>
+        <input
+          type="range"
+          id="squareSize"
+          name="square-size"
+          value="16"
+          min="1"
+          max="64"
+          step="1"
+        />
+      </div>
       <div class="grid-container"></div>
       <script src="./index.js"></script>
     </div>

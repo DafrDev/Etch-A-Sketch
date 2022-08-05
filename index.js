@@ -2,6 +2,16 @@ const squareSizeSlider = document.querySelector("#squareSize");
 squareSizeSlider.addEventListener("change", getSquareQuantity);
 squareSizeSlider.addEventListener("input", showValueOnScreen);
 
+const colorPicker = document.querySelector("#colorPicker");
+colorPicker.addEventListener("change", getColor);
+
+// black color
+let color = "#000000";
+
+function getColor(event) {
+  color = event.target.value;
+}
+
 function showValueOnScreen(event) {
   const value = event.target.value;
   const rangeLabel = document.querySelector("#rangeLabel");
@@ -13,9 +23,9 @@ function removeOldValue(parent) {
   parent.textContent = "";
 }
 
-function drawOnMouseOver(sqDiv) {
-  sqDiv.addEventListener("mouseover", () => {
-    sqDiv.className += " draw";
+function drawOnGrid(sqDiv) {
+  sqDiv.addEventListener("click", () => {
+    sqDiv.style.background = `${color}`;
   });
 }
 
@@ -26,7 +36,7 @@ function createSquare(gridContainer, id, squareQty) {
   gridContainer.append(squareDiv);
   gridContainer.style.gridTemplateColumns = `repeat(${squareQty}, 1fr)`;
 
-  drawOnMouseOver(squareDiv);
+  drawOnGrid(squareDiv);
 }
 
 function createGrid(squareQty) {
