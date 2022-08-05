@@ -22,21 +22,38 @@ function showValueOnScreen(event) {
 function removeOldValue(parent) {
   parent.textContent = "";
 }
+
 let drawing = false;
+let erase = false;
 function drawOnGrid(sqDiv) {
-  sqDiv.addEventListener("mousedown", () => {
-    sqDiv.style.background = `${color}`;
-    drawing = true;
+  const leftMouseBtn = 0;
+  const rightMouseBtn = 2;
+
+  sqDiv.addEventListener("mousedown", e => {
+    if (leftMouseBtn === e.button) {
+      sqDiv.style.background = `${color}`;
+      drawing = true;
+    }
+
+    if (rightMouseBtn === e.button) {
+      sqDiv.style.background = "";
+      erase = true;
+    }
   });
 
-  sqDiv.addEventListener("mousemove", () => {
+  sqDiv.addEventListener("mousemove", e => {
     if (drawing) {
       sqDiv.style.background = `${color}`;
+    }
+
+    if (erase) {
+      sqDiv.style.background = "";
     }
   });
 
   sqDiv.addEventListener("mouseup", () => {
     drawing = false;
+    erase = false;
   });
 }
 
@@ -53,6 +70,10 @@ function createSquare(gridContainer, id, squareQty) {
 function createGrid(squareQty) {
   const gridContainer = document.querySelector(".grid-container");
   const contain = gridContainer.childNodes;
+
+  gridContainer.addEventListener("contextmenu", e => {
+    e.preventDefault();
+  });
 
   if (contain.length >= 1) {
     removeOldValue(gridContainer);
