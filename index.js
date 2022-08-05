@@ -1,47 +1,55 @@
-const gridWidthBtn = document.querySelector(".gridWidth");
+const squareSizeSlider = document.querySelector("#squareSize");
+squareSizeSlider.addEventListener("change", getSquareQuantity);
+squareSizeSlider.addEventListener("input", showValueOnScreen);
 
-gridWidthBtn.addEventListener("click", createGridContainer);
+function showValueOnScreen(event) {
+  const value = event.target.value;
+  const rangeLabel = document.querySelector("#rangeLabel");
+
+  rangeLabel.textContent = `Grid Size: ${value}x${value}`;
+}
+
+function removeOldValue(parent) {
+  parent.textContent = "";
+}
 
 function drawOnMouseOver(sqDiv) {
-  sqDiv.addEventListener("mouseover", e => {
+  sqDiv.addEventListener("mouseover", () => {
     sqDiv.className += " draw";
   });
 }
 
-function createGrid() {
+function createSquare(gridContainer, id, squareQty) {
+  const squareDiv = document.createElement("div");
+  squareDiv.className = "square";
+  squareDiv.setAttribute("id", id);
+  gridContainer.append(squareDiv);
+  gridContainer.style.gridTemplateColumns = `repeat(${squareQty}, 1fr)`;
+
+  drawOnMouseOver(squareDiv);
+}
+
+function createGrid(squareQty) {
   const gridContainer = document.querySelector(".grid-container");
+  const contain = gridContainer.childNodes;
+
+  if (contain.length >= 1) {
+    removeOldValue(gridContainer);
+  }
 
   let id = 0;
-  for (let c = 0; c < gridWidth; c++) {
-    for (let r = 0; r < gridWidth; r++) {
+  for (let c = 0; c < squareQty; c++) {
+    for (let r = 0; r < squareQty; r++) {
       id++;
-      const squareDiv = document.createElement("div");
-      squareDiv.className = "square";
-      squareDiv.setAttribute("id", id);
-      gridContainer.append(squareDiv);
-
-      drawOnMouseOver(squareDiv);
+      createSquare(gridContainer, id, squareQty);
     }
   }
 }
 
-function removeOldGrid(grid) {
-  grid.textContent = "";
+function getSquareQuantity(event) {
+  const squareQty = event.target.value;
+
+  createGrid(squareQty);
 }
 
-function createGridContainer() {
-  const grid = document.querySelector(".grid-container");
-
-  gridWidth = prompt("grid width");
-  removeOldGrid(grid);
-
-  const gridContainerWidth = gridWidth * 16 + "px";
-  const gridContainerHeight = gridWidth * 16 + "px";
-
-  grid.style.cssText = `
-    width: ${gridContainerWidth};
-    height: ${gridContainerHeight};
-  `;
-
-  createGrid(gridWidth);
-}
+createGrid(16);

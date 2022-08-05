@@ -3,15 +3,24 @@
   padding: 0;
   box-sizing: border-box;
 }
+.content-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
 
 .grid-container {
+  display: grid;
+  width: 600px;
+  height: 600px;
+  margin-top: 30px;
   line-height: 0;
+  border: 1px solid black;
 }
 
 .square {
   display: inline-block;
-  width: 16px;
-  height: 16px;
   border: solid 1px red;
   cursor: pointer;
 }
