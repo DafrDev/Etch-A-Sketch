@@ -23,7 +23,7 @@ function showValueOnScreen(event) {
   const value = event.target.value;
   const rangeLabel = document.querySelector("#rangeLabel");
 
-  rangeLabel.textContent = `Grid Size: ${value}x${value}`;
+  rangeLabel.textContent = `${value}x${value}`;
 }
 
 function removeOldValue(parent) {

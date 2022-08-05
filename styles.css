@@ -2,29 +2,95 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Press Start 2P", cursive;
 }
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #4eb3f5;
+  color: #a8d3f0;
+}
+
+h1 {
+  margin: 60px 0 50px 0;
+}
+
 .content-container {
+  width: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 40px;
+  padding: 40px 0 60px;
+  border-radius: 20px;
+  background: #459ed9;
+  box-shadow: -8px -8px 16px #3c89bd, 8px 8px 16px #4eb3f5;
 }
+
 .input-container {
+  width: 200px;
+  height: 400px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
 }
 
 .grid-container {
+  padding: 20px;
   display: grid;
-  width: 600px;
-  height: 600px;
+  grid-gap: 1px;
+  width: 500px;
+  height: 500px;
   margin-top: 30px;
   line-height: 0;
-  border: 1px solid black;
+  border-radius: 20px;
+  background: #459ed9;
+  box-shadow: inset 8px 8px 16px #3c89bd, inset -8px -8px 16px #4eb3f5;
 }
 
 .square {
+  border-radius: 6px;
   display: inline-block;
-  border: solid 1px red;
   cursor: pointer;
+  background: #a8d3f0;
+}
+
+#colorPicker {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  height: 100px;
+  width: 100px;
+  padding: 10px;
+  border: none;
+  background: linear-gradient(145deg, #4aa9e8, #3e8ec3);
+  border-radius: 50%;
+}
+
+#colorPicker::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+  box-shadow: 6px 6px 14px #367ba9, -6px -6px 14px #54c1ff;
+}
+
+#cleanGrid {
+  cursor: pointer;
+  color: #a8d3f0;
+  width: 90%;
+  height: 40px;
+  border: none;
+  border-radius: 11px;
+  background: linear-gradient(145deg, #4aa9e8, #3e8ec3);
+  box-shadow: 7px 7px 11px #3983b4, -7px -7px 11px #51b9fe;
+}
+
+p {
+  text-align: center;
+  font-size: 10px;
 }

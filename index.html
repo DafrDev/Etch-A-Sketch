@@ -6,13 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <header>
+      <h1>Etch-a-Sketch</h1>
+    </header>
     <div class="content-container">
       <div class="input-container">
         <label for="colorPicker">Color</label>
         <input id="colorPicker" type="color" name="colorPicker" />
-        <label id="rangeLabel" for="square-size">Grid Size: 16x16</label>
+        <label id="rangeLabel" for="square-size">16x16</label>
         <input
           type="range"
           id="squareSize"
@@ -23,6 +32,7 @@
           step="1"
         />
         <button id="cleanGrid">clean grid</button>
+        <p>Right-click clear last square</p>
       </div>
       <div class="grid-container"></div>
       <script src="./index.js"></script>
